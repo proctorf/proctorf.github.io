@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="The personal site of Your Name.">
+	<title>Your Name | After Hours</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Monoton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #091127;
+			--night: #11143c;
+			--violet: #47286f;
+			--pink: #ff4f9a;
+			--hot-pink: #ff1593;
+			--aqua: #56f5e9;
+			--sun: #ffb347;
+			--paper: #fff9ee;
+			--line: rgba(255, 255, 255, .24);
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			color: var(--paper);
+			background: var(--ink);
+			font-family: "Space Grotesk", sans-serif;
+			overflow-x: hidden;
+		}
+		a { color: inherit; text-decoration: none; }
+
+		.hero {
+			isolation: isolate;
+			position: relative;
+			min-height: 100svh;
+			overflow: hidden;
+			background: linear-gradient(180deg, #282260 0%, #8b3678 41%, #e85083 58%, #ffad68 69%, #16245b 70%, #080d25 100%);
+		}
+		.hero::before {
+			content: "";
+			position: absolute;
+			z-index: -3;
+			inset: 0;
+			opacity: .22;
+			background-image: linear-gradient(rgba(255,255,255,.36) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.36) 1px, transparent 1px);
+			background-size: 42px 42px;
+			mask-image: linear-gradient(to bottom, #000, transparent 74%);
+		}
+		.sun {
+			position: absolute;
+			z-index: -2;
+			width: min(44vw, 520px);
+			aspect-ratio: 1;
+			left: 50%;
+			top: 18%;
+			transform: translateX(-50%);
+			border-radius: 50%;
+			background: linear-gradient(#ffe088 0 18%, #ff9859 18% 35%, #ff6c80 35% 52%, #e74691 52% 69%, #b63ea1 69%);
+			box-shadow: 0 0 85px rgba(255, 102, 151, .7);
+		}
+		.sun::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: repeating-linear-gradient(to bottom, transparent 0 17px, #9b3c95 18px 23px);
+		}
+		.water {
+			position: absolute;
+			z-index: -1;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 31%;
+			background: repeating-linear-gradient(to bottom, rgba(78, 240, 229, .75) 0 1px, transparent 1px 18px), linear-gradient(180deg, #293487, #081335 72%);
+			opacity: .92;
+		}
+		.skyline {
+			position: absolute;
+			z-index: 0;
+			right: 0;
+			bottom: 29%;
+			left: 0;
+			height: 15%;
+			opacity: .9;
+			background: linear-gradient(90deg, transparent 0 3%, #181645 3% 5%, transparent 5% 8%, #181645 8% 11%, transparent 11% 15%, #181645 15% 19%, transparent 19% 22%, #181645 22% 24%, transparent 24% 30%, #181645 30% 34%, transparent 34% 37%, #181645 37% 44%, transparent 44% 47%, #181645 47% 51%, transparent 51% 54%, #181645 54% 58%, transparent 58% 61%, #181645 61% 67%, transparent 67% 70%, #181645 70% 74%, transparent 74% 78%, #181645 78% 80%, transparent 80% 85%, #181645 85% 90%, transparent 90% 94%, #181645 94% 98%, transparent 98%);
+			clip-path: polygon(0 100%, 0 74%, 4% 74%, 4% 43%, 8% 43%, 8% 66%, 14% 66%, 14% 18%, 18% 18%, 18% 59%, 24% 59%, 24% 38%, 28% 38%, 28% 70%, 35% 70%, 35% 23%, 39% 23%, 39% 48%, 44% 48%, 44% 63%, 50% 63%, 50% 17%, 57% 17%, 57% 54%, 62% 54%, 62% 32%, 68% 32%, 68% 65%, 73% 65%, 73% 19%, 78% 19%, 78% 55%, 83% 55%, 83% 38%, 88% 38%, 88% 69%, 93% 69%, 93% 24%, 97% 24%, 97% 51%, 100% 51%, 100% 100%);
+		}
+		.palm {
+			position: absolute;
+			z-index: 1;
+			bottom: 18%;
+			width: 16rem;
+			height: 28rem;
+			transform-origin: bottom center;
+		}
+		.palm::before {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 48%;
+			width: 24px;
+			height: 67%;
+			border-radius: 50% 50% 0 0;
+			background: #111638;
+			transform: rotate(12deg);
+		}
+		.palm::after {
+			content: "✦";
+			position: absolute;
+			top: 11%;
+			left: 27%;
+			color: #111638;
+			font-size: 16rem;
+			line-height: .5;
+			transform: scaleX(1.7) rotate(15deg);
+		}
+		.palm-left { left: -5rem; transform: rotate(-14deg) scale(1.1); }
+		.palm-right { right: -5rem; transform: scaleX(-1) rotate(-12deg) scale(1.18); }
+
+		.nav, .hero-content, .section, .footer-inner {
+			width: min(1120px, calc(100% - 40px));
+			margin: 0 auto;
+		}
+		.nav {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1rem;
+			min-height: 84px;
+			font-family: "DM Mono", monospace;
+			font-size: .72rem;
+			letter-spacing: .14em;
+			text-transform: uppercase;
+		}
+		.brand { color: var(--aqua); font-weight: 500; text-shadow: 0 0 16px rgba(86, 245, 233, .7); }
+		.nav-links { display: flex; gap: clamp(1rem, 3vw, 2.5rem); }
+		.nav-links a { transition: color .2s ease; }
+		.nav-links a:hover { color: var(--aqua); }
+
+		.hero-content {
+			position: relative;
+			z-index: 2;
+			display: grid;
+			align-content: center;
+			min-height: calc(100svh - 84px);
+			padding-bottom: 10rem;
+		}
+		.kicker, .eyebrow {
+			margin: 0 0 1.15rem;
+			color: var(--aqua);
+			font-family: "DM Mono", monospace;
+			font-size: .73rem;
+			letter-spacing: .15em;
+			text-transform: uppercase;
+		}
+		h1, h2, p { margin-top: 0; }
+		h1 {
+			max-width: 850px;
+			margin-bottom: 1.25rem;
+			color: var(--paper);
+			font-size: clamp(3.5rem, 9vw, 7.6rem);
+			line-height: .88;
+			letter-spacing: 0;
+			text-transform: uppercase;
+			text-shadow: 5px 5px 0 var(--hot-pink), 9px 9px 0 rgba(18, 14, 53, .65);
+		}
+		h1 span { display: block; color: var(--aqua); text-shadow: 5px 5px 0 #196a82, 9px 9px 0 rgba(18, 14, 53, .65); }
+		.intro { max-width: 530px; margin-bottom: 2rem; font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.55; }
+		.button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: fit-content;
+			min-height: 50px;
+			padding: 0 1.35rem;
+			border: 1px solid var(--aqua);
+			color: var(--aqua);
+			background: rgba(9, 17, 39, .3);
+			box-shadow: 4px 4px 0 var(--hot-pink);
+			font-family: "DM Mono", monospace;
+			font-size: .75rem;
+			letter-spacing: .11em;
+			text-transform: uppercase;
+			transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+		}
+		.button:hover { transform: translate(3px, 3px); background: var(--aqua); box-shadow: 1px 1px 0 var(--hot-pink); color: var(--ink); }
+		.scroll-prompt {
+			position: absolute;
+			bottom: 1.8rem;
+			left: 50%;
+			transform: translateX(-50%);
+			color: var(--paper);
+			font-family: "DM Mono", monospace;
+			font-size: .68rem;
+			letter-spacing: .15em;
+			text-transform: uppercase;
+			opacity: .8;
+		}
+
+		main { background: var(--ink); }
+		.section { padding: clamp(5rem, 10vw, 9rem) 0; }
+		.about { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(2.5rem, 8vw, 8rem); align-items: start; }
+		h2 { margin-bottom: 1.25rem; font-size: clamp(2.3rem, 5vw, 4.5rem); line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+		.about-copy { max-width: 620px; font-size: clamp(1.05rem, 2vw, 1.32rem); line-height: 1.55; }
+		.about-copy strong { color: var(--pink); font-weight: 600; }
+		.roles { display: grid; gap: .75rem; margin-top: 2rem; font-family: "DM Mono", monospace; font-size: .8rem; letter-spacing: .06em; }
+		.roles div { display: flex; gap: 1rem; border-top: 1px solid var(--line); padding-top: .75rem; }
+		.roles span { color: var(--aqua); }
+
+		.work { background: var(--paper); color: var(--ink); }
+		.work .eyebrow { color: #9b1a61; }
+		.work h2 { color: #1a1a49; }
+		.project-list { border-top: 2px solid var(--ink); }
+		.project {
+			display: grid;
+			grid-template-columns: 100px 1fr auto;
+			align-items: center;
+			gap: 1.5rem;
+			min-height: 128px;
+			border-bottom: 1px solid rgba(9, 17, 39, .35);
+			transition: background .2s ease, padding .2s ease;
+		}
+		.project:hover { padding-inline: .75rem; background: var(--aqua); }
+		.project-id, .project-type { font-family: "DM Mono", monospace; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+		.project-title { margin: 0; font-size: clamp(1.6rem, 3vw, 2.7rem); text-transform: uppercase; }
+		.arrow { color: var(--hot-pink); font-size: 2rem; line-height: 1; }
+
+		.contact { position: relative; overflow: hidden; background: linear-gradient(120deg, #142060, #4f286d 56%, #a92c72); }
+		.contact::after { content: "AFTER HOURS"; position: absolute; right: -2.3rem; bottom: -1.8rem; color: rgba(255, 255, 255, .08); font-family: "Monoton", cursive; font-size: clamp(4rem, 14vw, 13rem); line-height: 1; white-space: nowrap; }
+		.contact .section { position: relative; z-index: 1; }
+		.contact h2 { max-width: 720px; color: var(--aqua); }
+		.contact-copy { max-width: 510px; margin-bottom: 2rem; font-size: 1.15rem; line-height: 1.55; }
+		.contact-links { display: flex; flex-wrap: wrap; gap: .75rem; }
+		.contact-links a { border-bottom: 1px solid var(--aqua); padding-bottom: .3rem; color: var(--aqua); font-family: "DM Mono", monospace; font-size: .8rem; letter-spacing: .06em; }
+
+		footer { border-top: 1px solid var(--line); background: #080d25; }
+		.footer-inner { display: flex; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; color: rgba(255,255,255,.62); font-family: "DM Mono", monospace; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; }
+
+		@media (max-width: 700px) {
+			.nav { min-height: 72px; }
+			.nav-links { gap: .8rem; font-size: .62rem; }
+			.hero-content { min-height: calc(100svh - 72px); padding-bottom: 8rem; }
+			.sun { top: 24%; width: 74vw; }
+			.palm { opacity: .8; transform: scale(.75); }
+			.palm-left { left: -7rem; }
+			.palm-right { right: -7rem; }
+			.about { grid-template-columns: 1fr; gap: 1.5rem; }
+			.project { grid-template-columns: 58px 1fr auto; gap: .75rem; min-height: 100px; }
+			.project-type { display: none; }
+			.footer-inner { flex-direction: column; }
+		}
+		@media (prefers-reduced-motion: no-preference) {
+			.hero-content { animation: rise .8s ease-out both; }
+			@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+		}
+	</style>
+</head>
+<body>
+	<header class="hero" id="top">
+		<div class="sun" aria-hidden="true"></div>
+		<div class="skyline" aria-hidden="true"></div>
+		<div class="water" aria-hidden="true"></div>
+		<div class="palm palm-left" aria-hidden="true"></div>
+		<div class="palm palm-right" aria-hidden="true"></div>
+
+		<nav class="nav" aria-label="Primary navigation">
+			<a class="brand" href="#top">YN / 305</a>
+			<div class="nav-links">
+				<a href="#about">About</a>
+				<a href="#work">Work</a>
+				<a href="#contact">Contact</a>
+			</div>
+		</nav>
+
+		<div class="hero-content">
+			<p class="kicker">Available for select projects / 2026</p>
+			<h1>Your Name <span>After Hours.</span></h1>
+			<p class="intro">A designer and developer making expressive digital work from wherever the neon is brightest.</p>
+			<a class="button" href="#work">View selected work</a>
+		</div>
+		<a class="scroll-prompt" href="#about">Scroll to enter</a>
+	</header>
+
+	<main>
+		<section class="section about" id="about">
+			<div>
+				<p class="eyebrow">01 / The Brief</p>
+				<h2>Sunset state<br>of mind.</h2>
+			</div>
+			<div class="about-copy">
+				<p>I'm <strong>Your Name</strong>, a multidisciplinary creative focused on identity, interfaces, and things that make the web feel a little less expected.</p>
+				<p>My work pairs a clear point of view with careful craft. I collaborate with people building culture, products, and useful ideas.</p>
+				<div class="roles" aria-label="Areas of expertise">
+					<div><span>01</span> Art direction and brand systems</div>
+					<div><span>02</span> Product design and front-end development</div>
+					<div><span>03</span> Selected freelance collaborations</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="work" id="work">
+			<div class="section">
+				<p class="eyebrow">02 / Selected Work</p>
+				<h2>On the record.</h2>
+				<div class="project-list">
+					<a class="project" href="#contact">
+						<span class="project-id">01 / 2026</span>
+						<h3 class="project-title">Midnight Market</h3>
+						<span class="project-type">Digital commerce</span>
+						<span class="arrow" aria-hidden="true">↗</span>
+					</a>
+					<a class="project" href="#contact">
+						<span class="project-id">02 / 2025</span>
+						<h3 class="project-title">Channel 87</h3>
+						<span class="project-type">Identity system</span>
+						<span class="arrow" aria-hidden="true">↗</span>
+					</a>
+					<a class="project" href="#contact">
+						<span class="project-id">03 / 2025</span>
+						<h3 class="project-title">Lido Radio</h3>
+						<span class="project-type">Web experience</span>
+						<span class="arrow" aria-hidden="true">↗</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="contact" id="contact">
+			<div class="section">
+				<p class="eyebrow">03 / Open Channel</p>
+				<h2>Have a bright idea?</h2>
+				<p class="contact-copy">For freelance work, collaborations, or a good recommendation for late-night coffee, get in touch.</p>
+				<div class="contact-links">
+					<a href="mailto:hello@example.com">hello@example.com</a>
+					<a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+					<a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="footer-inner">
+			<span>Your Name</span>
+			<span>Designed for the long way home</span>
+			<span>&copy; 2026</span>
+		</div>
+	</footer>
+</body>
+</html>
