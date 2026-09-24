@@ -4,21 +4,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="The personal site of Your Name.">
-	<title>Your Name | After Hours</title>
+	<title>Your Name | The Brass Atlas</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Monoton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
 	<style>
 		:root {
-			--ink: #091127;
-			--night: #11143c;
-			--violet: #47286f;
-			--pink: #ff4f9a;
-			--hot-pink: #ff1593;
-			--aqua: #56f5e9;
-			--sun: #ffb347;
-			--paper: #fff9ee;
-			--line: rgba(255, 255, 255, .24);
+			--ink: #171515;
+			--night: #29211c;
+			--violet: #42352a;
+			--pink: #a74e2d;
+			--hot-pink: #8d3d25;
+			--aqua: #c79745;
+			--sun: #f4d180;
+			--paper: #e9d8af;
+			--line: rgba(244, 209, 128, .3);
 		}
 
 		* { box-sizing: border-box; }
@@ -27,7 +27,7 @@
 			margin: 0;
 			color: var(--paper);
 			background: var(--ink);
-			font-family: "Space Grotesk", sans-serif;
+			font-family: "Libre Baskerville", Georgia, serif;
 			overflow-x: hidden;
 		}
 		a { color: inherit; text-decoration: none; }
@@ -256,6 +256,43 @@
 			.hero-content { animation: rise .8s ease-out both; }
 			@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 		}
+
+		/* Brass-and-soot steampunk treatment. */
+		.hero { background: radial-gradient(ellipse at 72% 20%, rgba(205, 151, 58, .27), transparent 26%), linear-gradient(155deg, #171719, #3b3024 48%, #16191b); }
+		.hero::before { opacity: .32; background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255, 255, 255, .055) 4px), repeating-linear-gradient(90deg, transparent 0 41px, rgba(0, 0, 0, .25) 42px); mask-image: none; }
+		.hero::after { content: ""; position: absolute; z-index: -2; inset: 12px; border: 1px solid rgba(244, 209, 128, .42); box-shadow: inset 0 0 0 5px rgba(23, 21, 21, .8), inset 0 0 0 6px rgba(244, 209, 128, .22); pointer-events: none; }
+		.sun { top: 18%; left: auto; right: 13%; width: min(34vw, 440px); aspect-ratio: 2.45; transform: rotate(-8deg); border: 3px solid rgba(244, 209, 128, .74); background: linear-gradient(160deg, rgba(218, 181, 104, .38), rgba(63, 50, 38, .42)); box-shadow: inset -22px -14px 25px rgba(23, 21, 21, .66), 0 14px 32px rgba(0, 0, 0, .3); }
+		.sun::after { top: auto; right: auto; bottom: -43%; left: 37%; width: 25%; height: 39%; border: 3px solid rgba(244, 209, 128, .74); border-radius: 0 0 30% 30%; background: var(--night); }
+		.water { height: 32%; background: repeating-radial-gradient(ellipse at 50% 110%, rgba(208, 205, 180, .22) 0 4%, transparent 4.4% 10%); filter: blur(2px); opacity: .75; }
+		.skyline { bottom: -15%; left: -7%; width: clamp(200px, 33vw, 460px); height: auto; aspect-ratio: 1; border: clamp(20px, 3vw, 42px) dotted rgba(199, 151, 69, .63); border-radius: 50%; background: transparent; clip-path: none; }
+		.skyline::after { content: ""; position: absolute; inset: 23%; border: clamp(14px, 2vw, 28px) solid rgba(167, 78, 45, .72); border-radius: 50%; box-shadow: inset 0 0 0 12px rgba(23, 21, 21, .7); }
+		.palm { bottom: auto; width: clamp(160px, 28vw, 390px); height: auto; aspect-ratio: 1; border: clamp(20px, 3vw, 42px) dotted rgba(199, 151, 69, .63); border-radius: 50%; filter: drop-shadow(0 0 16px rgba(0, 0, 0, .8)); }
+		.palm::before, .palm::after { display: none; }
+		.palm-left { top: 11%; left: auto; right: -8%; transform: rotate(12deg); }
+		.palm-right { display: none; }
+		.brand, .kicker, .eyebrow, .roles span { color: var(--sun); text-shadow: none; }
+		.nav, .button, .scroll-prompt, .roles, .project-id, .project-type, .contact-links a, .footer-inner { font-family: "Special Elite", monospace; }
+		h1, h2, .project-title { font-family: "IM Fell English", Georgia, serif; font-weight: 400; }
+		h1 { color: var(--sun); font-size: clamp(4rem, 10vw, 8.6rem); text-shadow: 4px 4px 0 var(--copper), 8px 8px 0 rgba(20, 16, 13, .8); }
+		h1 span { color: var(--paper); text-shadow: none; font-style: italic; }
+		.button { border-color: var(--aqua); color: var(--sun); background: rgba(30, 24, 19, .65); box-shadow: 4px 4px 0 var(--pink); }
+		.button:hover { background: var(--aqua); color: var(--ink); box-shadow: 1px 1px 0 var(--pink); }
+		main { background: var(--night); }
+		h2 { color: var(--sun); font-size: clamp(2.8rem, 6vw, 5.1rem); }
+		.work { background: var(--paper); color: var(--night); }
+		.work .eyebrow { color: #8e482c; }
+		.work h2 { color: #49331f; }
+		.project-list { border-color: var(--violet); }
+		.project { border-color: rgba(66, 53, 42, .5); }
+		.project:hover { background: #dabd79; }
+		.arrow { color: var(--pink); }
+		.contact { background: linear-gradient(135deg, #241b17, #613921 58%, #30201a); }
+		.contact::after { content: "MECHANICAL WONDERS"; font-family: "IM Fell English", Georgia, serif; }
+		.contact h2, .contact-links a { color: var(--sun); }
+		.contact-links a { border-color: var(--aqua); }
+		footer { background: #161210; }
+		@media (prefers-reduced-motion: no-preference) { .palm-left { animation: turn 35s linear infinite; } .skyline { animation: turn 45s linear infinite reverse; } @keyframes turn { to { rotate: 360deg; } } }
+		@media (max-width: 700px) { .sun { top: 20%; right: -9%; width: 72vw; opacity: .66; } .palm-left { right: -18%; } }
 	</style>
 </head>
 <body>
@@ -264,10 +301,9 @@
 		<div class="skyline" aria-hidden="true"></div>
 		<div class="water" aria-hidden="true"></div>
 		<div class="palm palm-left" aria-hidden="true"></div>
-		<div class="palm palm-right" aria-hidden="true"></div>
 
 		<nav class="nav" aria-label="Primary navigation">
-			<a class="brand" href="#top">YN / 305</a>
+			<a class="brand" href="#top">YN / AETHER</a>
 			<div class="nav-links">
 				<a href="#about">About</a>
 				<a href="#work">Work</a>
@@ -276,51 +312,51 @@
 		</nav>
 
 		<div class="hero-content">
-			<p class="kicker">Available for select projects / 2026</p>
-			<h1>Your Name <span>After Hours.</span></h1>
-			<p class="intro">A designer and developer making expressive digital work from wherever the neon is brightest.</p>
-			<a class="button" href="#work">View selected work</a>
+			<p class="kicker">Independent maker and designer / MMXXVI</p>
+			<h1>Your Name <span>at Full Steam.</span></h1>
+			<p class="intro">A designer and developer crafting curious digital instruments, considered identities, and web experiences with a little more soul in the machinery.</p>
+			<a class="button" href="#work">Inspect the workshop</a>
 		</div>
-		<a class="scroll-prompt" href="#about">Scroll to enter</a>
+		<a class="scroll-prompt" href="#about">Descend to the workshop</a>
 	</header>
 
 	<main>
 		<section class="section about" id="about">
 			<div>
-				<p class="eyebrow">01 / The Brief</p>
-				<h2>Sunset state<br>of mind.</h2>
+				<p class="eyebrow">I / The Maker</p>
+				<h2>Form follows<br>fascination.</h2>
 			</div>
 			<div class="about-copy">
-				<p>I'm <strong>Your Name</strong>, a multidisciplinary creative focused on identity, interfaces, and things that make the web feel a little less expected.</p>
-				<p>My work pairs a clear point of view with careful craft. I collaborate with people building culture, products, and useful ideas.</p>
+				<p>I'm <strong>Your Name</strong>, a multidisciplinary creative working where utility and imagination meet.</p>
+				<p>I make visual identities, digital products, and practical systems for people with ambitious ideas. Every detail earns its place, from the smallest interface decision to the grandest mechanism.</p>
 				<div class="roles" aria-label="Areas of expertise">
-					<div><span>01</span> Art direction and brand systems</div>
-					<div><span>02</span> Product design and front-end development</div>
-					<div><span>03</span> Selected freelance collaborations</div>
+					<div><span>I</span> Art direction and brand systems</div>
+					<div><span>II</span> Product design and front-end development</div>
+					<div><span>III</span> Selected freelance collaborations</div>
 				</div>
 			</div>
 		</section>
 
 		<section class="work" id="work">
 			<div class="section">
-				<p class="eyebrow">02 / Selected Work</p>
-				<h2>On the record.</h2>
+				<p class="eyebrow">II / Selected Apparatus</p>
+				<h2>From the workshop.</h2>
 				<div class="project-list">
 					<a class="project" href="#contact">
-						<span class="project-id">01 / 2026</span>
-						<h3 class="project-title">Midnight Market</h3>
-						<span class="project-type">Digital commerce</span>
+						<span class="project-id">I / 2026</span>
+						<h3 class="project-title">The Navigator</h3>
+						<span class="project-type">Digital product</span>
 						<span class="arrow" aria-hidden="true">↗</span>
 					</a>
 					<a class="project" href="#contact">
-						<span class="project-id">02 / 2025</span>
-						<h3 class="project-title">Channel 87</h3>
+						<span class="project-id">II / 2025</span>
+						<h3 class="project-title">Copper &amp; Co.</h3>
 						<span class="project-type">Identity system</span>
 						<span class="arrow" aria-hidden="true">↗</span>
 					</a>
 					<a class="project" href="#contact">
-						<span class="project-id">03 / 2025</span>
-						<h3 class="project-title">Lido Radio</h3>
+						<span class="project-id">III / 2025</span>
+						<h3 class="project-title">The Faraday Club</h3>
 						<span class="project-type">Web experience</span>
 						<span class="arrow" aria-hidden="true">↗</span>
 					</a>
@@ -330,9 +366,9 @@
 
 		<section class="contact" id="contact">
 			<div class="section">
-				<p class="eyebrow">03 / Open Channel</p>
-				<h2>Have a bright idea?</h2>
-				<p class="contact-copy">For freelance work, collaborations, or a good recommendation for late-night coffee, get in touch.</p>
+				<p class="eyebrow">III / Telegraph Office</p>
+				<h2>Have an idea worth building?</h2>
+				<p class="contact-copy">For commissions, collaborations, or a proper exchange of curious ideas, send a message through the wires.</p>
 				<div class="contact-links">
 					<a href="mailto:hello@example.com">hello@example.com</a>
 					<a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
@@ -345,7 +381,7 @@
 	<footer>
 		<div class="footer-inner">
 			<span>Your Name</span>
-			<span>Designed for the long way home</span>
+			<span>Made with care and calibrated brass</span>
 			<span>&copy; 2026</span>
 		</div>
 	</footer>
